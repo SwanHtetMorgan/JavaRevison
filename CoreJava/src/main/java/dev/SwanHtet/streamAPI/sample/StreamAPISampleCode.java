@@ -1,19 +1,18 @@
-package dev.SwanHtet.streamAPI;
+package dev.SwanHtet.streamAPI.sample;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.SwanHtet.exception.unchecked.UnCheckCustom;
 import dev.SwanHtet.streamAPI.helper.Employee;
+import dev.SwanHtet.streamAPI.sample.StreamAPIOperations;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.io.File;
-import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
 
 @Getter
 public class StreamAPISampleCode implements StreamAPIOperations {
@@ -52,19 +51,6 @@ public class StreamAPISampleCode implements StreamAPIOperations {
 				.collect(Collectors.groupingBy(String::length));
 	}
 
-	@SneakyThrows
-	@Override
-	public Object[] processingEmployeeDate() {
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			Employee[] employees = objectMapper.readValue(new File("/Users/swanhtetmac/Desktop/spring-and-spring-boot-example/JavaRevison/CoreJava/src/main/resources/json/employee.json"), Employee[].class);
-			for(Employee employee: employees){
-				System.out.println(employee.toString());
-			}
-			return employees;
-		}catch (UnCheckCustom e){
-			throw  new UnCheckCustom("Failed to load data from Json File");
-		}
-	}
+
 
 }

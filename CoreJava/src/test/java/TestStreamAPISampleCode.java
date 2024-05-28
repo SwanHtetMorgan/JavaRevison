@@ -1,4 +1,4 @@
-import dev.SwanHtet.streamAPI.StreamAPISampleCode;
+import dev.SwanHtet.streamAPI.sample.StreamAPISampleCode;
 import org.junit.Test;
 
 import java.util.Arrays;
